@@ -7,28 +7,21 @@
   <script src="https://cdn.auth0.com/js/auth0/9.17/auth0.min.js"></script>
 </head>
 <body>
-  <h1>Autenticazione tramite Auth0</h1>
-  <button onclick="login()">Login</button>
-  <button onclick="logout()">Logout</button>
+  <h1>Reindirizzamento al Login...</h1>
 
   <script>
     var webAuth = new auth0.WebAuth({
-      domain: 'databasecentrale.eu.auth0.com',       // Sostituisci con il tuo dominio Auth0
-      clientID: '5tSPZyqtnN5BoC8VTLPs8HhsDo13enOq',  // Sostituisci con il tuo Client ID
+      domain: 'databasecentrale.eu.auth0.comN',       // Sostituisci con il tuo dominio Auth0
+      clientID: '5tSPZyqtnN5BoC8VTLPs8HhsDo13enOqD',  // Sostituisci con il tuo Client ID
       redirectUri: 'https://github.com/ElitePlus79/Database',  // URL di redirect (GitHub Pages o Google Sites)
       responseType: 'code',
       scope: 'openid profile email',
     });
 
-    function login() {
+    // ⚡ Esegui l'autenticazione immediatamente al caricamento della pagina
+    window.onload = function() {
       webAuth.authorize();
-    }
-
-    function logout() {
-      webAuth.logout({
-        returnTo: 'https://sites.google.com/view/databasecentralesir?usp=sharingL'  // URL di logout
-      });
-    }
+    };
   </script>
 </body>
 </html>
